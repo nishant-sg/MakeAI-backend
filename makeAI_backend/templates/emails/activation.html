@@ -1,0 +1,44 @@
+{% extends "emails/base.html" %}
+
+{% load static %}
+
+{% block subject %}Account Activation on Dummy{% endblock %}
+
+{% block heading %}
+Account Activation
+{% endblock %}
+
+{% block content %}
+You're receiving this email because you need to finish activation process.
+Please click on the button below to activate your account:
+
+<br><br><br>
+<a href="{{ url }}" target="_blank" style="
+            text-decoration: none;
+            font-family: lato, 'helvetica neue', helvetica, arial, sans-serif;
+            font-size: 20px;
+            color: #fff;
+            background-color: #0b913a;
+            padding: 10px 25px;
+            border-radius: 5px;
+        ">Activate</a>
+<br><br><br>
+
+Best Regards,<br>
+The DUMMY Team
+
+<br><br>
+<p style="
+            margin: 0;
+            -webkit-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            mso-line-height-rule: exactly;
+            font-size: 14px;
+            font-family: lato, 'helvetica neue', helvetica, arial, sans-serif;
+            line-height: 21px;
+            color: #666666;
+        ">
+    If you did not make this request, reply to this email or write to dev.makeai@gmail.com so we can
+    look into a possible attempt to impersonate you.
+</p>
+{% endblock %}
