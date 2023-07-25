@@ -18,11 +18,11 @@ from django.urls import include,re_path,path
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    # path("test/", include("testAPI.urls")),
-    path("",include("users.urls")),
+    path("test/", include("testAPI.urls")),
+    path("auth/",include('users.urls')),
     # path("auth/",include('djoser.urls')),
     # path("auth/",include('djoser.urls.jwt')),
-    # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
 ]
 
 # urlpatterns+= [re_path(r'^.*', TemplateView.as_view(template_name ='index.html'))]
