@@ -15,7 +15,6 @@ from django.contrib.sites.shortcuts import get_current_site
 # Create your views here.
 class RegisterView(APIView):
     def post(self,req):
-        print(req.data)
         serializers = UserSerializer(data = req.data)
         serializers.is_valid(raise_exception=True)
         serializers.save()
@@ -32,7 +31,8 @@ class RegisterView(APIView):
         message = f'Hi {user.name},\n\n\nThank you for registering with MakeAI.\nKindly activate your account by clicking on the following link\n '+activationURL
         email_from = 'dev.makeai@gmail.com'
         recipient_list = [user.email, ]
-        send_mail( subject, message, email_from, recipient_list )
+        print(req.data)
+        # send_mail( subject, message, email_from, recipient_list )
         return Response(serializers.data)
 
 class LoginView(APIView):
@@ -41,7 +41,7 @@ class LoginView(APIView):
         password = req.data['password']
 
         user = User.objects.filter(email=email).first()
-        print(user.pk)
+        # print(user.pk)
         if user is None:
             raise AuthenticationFailed("No such user exists")
         if not user.is_active:
